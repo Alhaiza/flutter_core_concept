@@ -18,28 +18,16 @@ class MyApp extends StatelessWidget {
         // AppBar = Header Aplikasi
         appBar: AppBar(title: Text("My Apps")),
         // Bagian Utama Aplikasi
-        body: Center(
-          child: Text(
-            "Hello World",
-            // maxLines = batas line
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            // textAlign = posisi text
-            textAlign: TextAlign.center,
-            // Memberi Styling pada Font
-            style: TextStyle(
-              backgroundColor: Colors.amber,
-              color: Colors.black,
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 10,
-              // Harus ditambah di pubspec.yaml
-              fontFamily: 'Poppins',
-              decoration: TextDecoration.underline,
-              decorationColor: Colors.blue,
-              decorationThickness: 5,
-            ),
-          ),
+        // Ini kalau Pakai Collumn (Kalau mau liat versi non collumn liat commit basic widget)
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Container(width: 200, height: 50, color: Color(0xffA2CB8B)),
+            Container(width: 50, height: 50, color: Color(0xffC00707)),
+            Container(width: 100, height: 50, color: Color(0xffFFAA00)),
+            Container(width: 300, height: 50, color: Color(0xff7AAACE)),
+          ],
         ),
       ),
     );
