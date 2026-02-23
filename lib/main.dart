@@ -18,7 +18,29 @@ class MyApp extends StatelessWidget {
         // AppBar = Header Aplikasi
         appBar: AppBar(title: Text("My Apps")),
         // Bagian Utama Aplikasi
-        body: Center(child: Text("Hello World")),
+        body: Center(
+          child: Text(
+            "Hello World",
+            // maxLines = batas line
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            // textAlign = posisi text
+            textAlign: TextAlign.center,
+            // Memberi Styling pada Font
+            style: TextStyle(
+              backgroundColor: Colors.amber,
+              color: Colors.black,
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              letterSpacing: 10,
+              // Harus ditambah di pubspec.yaml
+              fontFamily: 'Poppins',
+              decoration: TextDecoration.underline,
+              decorationColor: Colors.blue,
+              decorationThickness: 5,
+            ),
+          ),
+        ),
       ),
     );
   }
