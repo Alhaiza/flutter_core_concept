@@ -11,46 +11,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("List Tile")),
-        body: ListView(
-          children: [
-            // Biar kayak Whatsapp/Aplikasi Chat lain
-            ListTile(
-              contentPadding: EdgeInsets.all(10),
-              title: Text("Syarif Muhammad Alhaiza"),
-              subtitle: Text(
-                "Selamat Pagishfheqfheqbvjebjbvjkebgjbekjbgjebqfbdbgjdbgjbdjgbjdgbjdgbjbgdjbfsbjfbjsbsbbgjbjbjgbjbgjbdjgb",
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-              leading: CircleAvatar(),
-              trailing: Text("04:20 PM"),
-              tileColor: Colors.amber,
-              dense: true,
+        appBar: AppBar(title: Text("Image Widget")),
+        body: Center(
+          child: Container(
+            width: 350,
+            height: 500,
+            color: Colors.amber,
+            child: Image(
+              fit: BoxFit.cover,
+              image: AssetImage("images/image-example.jpg"),
             ),
-            Divider(color: Colors.black),
-            ListTile(
-              title: Text("Syarif Muhammad Alhaiza"),
-              subtitle: Text("Selamat Pagi"),
-              leading: CircleAvatar(),
-              trailing: Text("04:20 PM"),
-            ),
-            Divider(color: Colors.black),
-            ListTile(
-              title: Text("Syarif Muhammad Alhaiza"),
-              subtitle: Text("Selamat Pagi"),
-              leading: CircleAvatar(),
-              trailing: Text("04:20 PM"),
-            ),
-            Divider(color: Colors.black),
-            ListTile(
-              title: Text("Syarif Muhammad Alhaiza"),
-              subtitle: Text("Selamat Pagi"),
-              leading: CircleAvatar(),
-              trailing: Text("04:20 PM"),
-            ),
-            Divider(color: Colors.black),
-          ],
+          ),
         ),
       ),
     );
