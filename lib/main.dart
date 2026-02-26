@@ -5,54 +5,156 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
+  static const List<Map<String, Object>> myList = [
+    {
+      "name": "Sandika",
+      "age": 23,
+      "favColor": [
+        "Black",
+        "Red",
+        "Amber",
+        "Black",
+        "Red",
+        "Amber",
+        "Black",
+        "Red",
+        "Amber",
+      ],
+    },
+    {
+      "name": "Ucup",
+      "age": 23,
+      "favColor": ["White", "Red", "Green"],
+    },
+    {
+      "name": "Andre",
+      "age": 23,
+      "favColor": [
+        "White",
+        "Red",
+        "Green",
+        "White",
+        "Red",
+        "Green",
+        "White",
+        "Red",
+        "Green",
+        "White",
+        "Red",
+        "Green",
+      ],
+    },
+    {
+      "name": "Andre",
+      "age": 23,
+      "favColor": [
+        "White",
+        "Red",
+        "Green",
+        "White",
+        "Red",
+        "Green",
+        "White",
+        "Red",
+        "Green",
+        "White",
+        "Red",
+        "Green",
+      ],
+    },
+    {
+      "name": "Andre",
+      "age": 23,
+      "favColor": [
+        "White",
+        "Red",
+        "Green",
+        "White",
+        "Red",
+        "Green",
+        "White",
+        "Red",
+        "Green",
+        "White",
+        "Red",
+        "Green",
+      ],
+    },
+    {
+      "name": "Andre",
+      "age": 23,
+      "favColor": [
+        "White",
+        "Red",
+        "Green",
+        "White",
+        "Red",
+        "Green",
+        "White",
+        "Red",
+        "Green",
+        "White",
+        "Red",
+        "Green",
+      ],
+    },
+  ];
 
-class _MyAppState extends State<MyApp> {
-  int counter = 1;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text("Dynamic Apps")),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              counter.toString(),
-              style: TextStyle(fontSize: 20 + double.parse(counter.toString())),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                // Elevetd button tuh buat tombol yang manggil yang bisa ngerubah sesuatu
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      counter++;
-                    });
-                    print(counter);
-                  },
-                  child: Icon(Icons.add),
+        appBar: AppBar(title: Text("ID App")),
+        body: ListView(
+          // Children nya dijadiin mappingan
+          children: myList.map((data) {
+            final List<String> myFavColor = data['favColor'] as List<String>;
+            return Card(
+              margin: EdgeInsets.all(20),
+              color: Colors.blueGrey,
+              child: Container(
+                margin: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        CircleAvatar(),
+                        SizedBox(width: 20),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Name: ${data['name']}"),
+                            Text("Age: ${data['age']}"),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: myFavColor.map((color) {
+                          return Container(
+                            color: Colors.amber,
+                            margin: EdgeInsets.symmetric(
+                              vertical: 15,
+                              horizontal: 8,
+                            ),
+                            padding: EdgeInsets.all(10),
+                            child: Text(color),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ],
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      if (counter != 1) {
-                        counter--;
-                      }
-                    });
-                    print(counter);
-                  },
-                  child: Icon(Icons.remove),
-                ),
-              ],
-            ),
-          ],
+              ),
+            );
+          }).toList(),
         ),
       ),
     );
