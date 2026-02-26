@@ -11,13 +11,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
-        appBar: AppBar(title: Text("Date Format")),
-        body: Center(
-          child: Text(
-            DateFormat.yMMMMd().format(DateTime.now()),
-            style: TextStyle(fontSize: 25),
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+          leading: Container(color: Colors.greenAccent),
+          title: Container(width: 1000, height: 10, color: Colors.red),
+          centerTitle: true,
+          actions: [
+            Container(height: 35, width: 35, color: Colors.purple),
+            Container(height: 35, width: 35, color: Colors.yellow),
+          ],
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(200),
+            child: Container(height: 150, width: 100, color: Colors.orange),
           ),
+          flexibleSpace: Container(height: 350, color: Colors.deepPurple),
         ),
       ),
     );
